@@ -1,4 +1,36 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
+
+
+  namespace :api, defaults: {format: 'json'} do
+    # /api/... Api:: 
+    #namespace :v1 do
+    #  resources :products 
+    #end
+    #namespace :v2 do
+    #  resources :products 
+    #end
+
+
+    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+      resources :products
+      resources :categories
+
+      get 'dashboard/home'
+      get 'dashboard/dashboard', to: 'dashboard', as: 'dashboard', action: 'dashboard'
+      get 'dashboard',  to: 'dashboard', as: 'dashboard_dashboard', action: 'dashboard'
+      #get 'dashboard' => 'dashboard#dashboard'
+      root 'dashboard#index'
+      devise_for :users
+
+
+    end
+    scope module: :v2, constraints: ApiConstraints.new(version: 2, default: :true) do
+      resources :products
+    end
+  end
+  
   resources :products
   resources :categories
   get 'dashboard/home'

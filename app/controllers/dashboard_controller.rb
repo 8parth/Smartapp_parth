@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_user!, only: [:dashboard]
+  before_action :authenticate_user!, only: [:dashboard,:home]
 
   def home
   end

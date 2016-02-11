@@ -1,0 +1,11 @@
+problem:
+Routing error when deleting user account.
+
+solution:
+My old path was 'edit_user_registration_path'
+But instead, using user_registration_path
+solved the problem.
+http://stackoverflow.com/questions/27292082/delete-devise-user-no-route-matches-delete-users-edit-8
+
+.............................................................................................
+problem:

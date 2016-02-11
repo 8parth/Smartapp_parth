@@ -2,10 +2,14 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  #use versionist/rocket_pants for versioning REST api
+
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+
+
   end
 
   # GET /products/1
