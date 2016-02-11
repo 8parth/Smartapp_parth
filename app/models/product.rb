@@ -7,4 +7,5 @@ class Product < ActiveRecord::Base
   validates :category_id, presence: true
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
 
+  validates_associated :category
 end

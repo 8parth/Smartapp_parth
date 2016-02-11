@@ -28,6 +28,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @categories = Category.all
+
+    
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -36,7 +38,8 @@ class ProductsController < ApplicationController
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
+    
+  end
   end
 
   # PATCH/PUT /products/1

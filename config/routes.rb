@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :products
   resources :categories
   get 'dashboard/home'
+  get 'dashboard/dashboard', to: 'dashboard', as: 'dashboard', action: 'dashboard'
+  get 'dashboard',  to: 'dashboard', as: 'dashboard_dashboard', action: 'dashboard'
+  #get 'dashboard' => 'dashboard#dashboard'
   root 'dashboard#index'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
